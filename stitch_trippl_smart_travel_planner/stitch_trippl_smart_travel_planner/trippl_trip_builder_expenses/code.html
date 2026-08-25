@@ -1,0 +1,365 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Trip Builder &amp; Expenses | TRIPPL</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5f5e5e",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#341100",
+                    "surface": "#f6faf9",
+                    "secondary-container": "#e4e2e1",
+                    "outline": "#6e7979",
+                    "surface-container-highest": "#dfe3e2",
+                    "on-tertiary-fixed-variant": "#733512",
+                    "surface-container": "#ebefee",
+                    "on-secondary-fixed-variant": "#474747",
+                    "background": "#f6faf9",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-surface": "#181c1c",
+                    "inverse-primary": "#76d6d5",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#93f2f2",
+                    "on-primary-fixed": "#002020",
+                    "surface-container-low": "#f0f4f3",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#e3fffe",
+                    "on-secondary-container": "#656464",
+                    "surface-bright": "#f6faf9",
+                    "on-tertiary-container": "#fff9f7",
+                    "primary": "#006565",
+                    "surface-dim": "#d7dbda",
+                    "surface-variant": "#dfe3e2",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#006a6a",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "tertiary-fixed": "#ffdbcb",
+                    "tertiary-container": "#a96039",
+                    "primary-container": "#008080",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e5e9e8",
+                    "on-background": "#181c1c",
+                    "inverse-on-surface": "#edf2f1",
+                    "outline-variant": "#bdc9c8",
+                    "primary-fixed-dim": "#76d6d5",
+                    "inverse-surface": "#2c3131",
+                    "on-surface-variant": "#3e4949",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "tertiary": "#8b4823"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .expense-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .expense-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #bdc9c8; border-radius: 10px; }
+        
+        /* Toggle Styling */
+        .toggle-bg:after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            background: white;
+            border-radius: 99px;
+            height: 20px;
+            width: 20px;
+            transition: 0.3s;
+        }
+        input:checked + .toggle-bg:after {
+            transform: translateX(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-fixed-dim">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-inverse-surface shadow-[0_4px_20px_rgba(0,0,0,0.04)]"><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><a href="{{DATA:SCREEN:SCREEN_9}}" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a><nav class="hidden md:flex gap-8 items-center h-full"><a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_9}}">Home</a><a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_8}}">Explore</a><a class="h-full flex items-center text-primary border-b-2 border-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md font-bold" href="{{DATA:SCREEN:SCREEN_6}}">Bookings</a><a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_3}}">My Trips</a></nav><div class="flex items-center gap-4"><a href="{{DATA:SCREEN:SCREEN_8}}" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a><a href="{{DATA:SCREEN:SCREEN_3}}" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a></div></div></header>
+<main class="max-w-[1280px] mx-auto px-gutter py-stack-lg min-h-screen">
+<div class="flex flex-col md:flex-row gap-8 items-start">
+<!-- Main Content Area -->
+<div class="flex-1 w-full space-y-stack-lg">
+<!-- Header & Controls -->
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-2">Build Your Trip</h1>
+<p class="text-on-surface-variant font-body-md max-w-xl">Review and manage your selected destinations, stays, and experiences for your upcoming Icelandic adventure.</p>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-low p-2 rounded-xl">
+<span class="text-label-sm font-label-sm text-on-surface-variant ml-2">Individual</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="viewToggle" type="checkbox">
+<div class="toggle-bg w-12 h-6 bg-outline-variant rounded-full peer-checked:bg-primary"></div>
+</label>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Combined</span>
+</div>
+</div>
+<!-- Expense Categories -->
+<div class="space-y-12">
+<!-- Stays Section -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">bed</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Accommodation</h2>
+</div>
+<div class="grid gap-6">
+<div class="expense-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 flex flex-col md:flex-row gap-6 items-center">
+<div class="w-full md:w-32 h-24 rounded-lg bg-cover bg-center shrink-0" data-alt="A modern minimalist boutique hotel interior with soft warm lighting, neutral tones, and a large window overlooking a misty Icelandic landscape. The aesthetic is clean, premium, and calm, consistent with a refined travel brand." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBy58fK9tuP54g9z_4L4oCCqClC7evMkhZVurZIMkR8_hHaeh8kkZsba_ZCqIvMi6f_MkliC7pdl1q7dsnmFcAftDQZBzGTNPJsZRS86Td1HyjoU3nNlptP_Dso-K7pUR-uvpFjQ30nWKWQq0bphss1KRNKauDiCjdk6S-lsqgqIK3U6gQBQwfIXYlEnVTixi87J76smWwBItFkr_8oi9MLlBUzeGD8XkWe9EAkG9sHHEQY-c-m3SDx')"></div>
+<div class="flex-1 space-y-1">
+<h3 class="font-headline-md text-body-lg font-bold">Nordic Light Inn</h3>
+<p class="text-on-surface-variant font-body-md">Reykjavík • 3 Nights</p>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Check-in</span>
+<input class="mt-1 border-none bg-surface-container p-0 px-2 rounded-md font-body-md text-on-surface focus:ring-1 focus:ring-primary h-8" type="date" value="2024-11-12">
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Guests</span>
+<input class="mt-1 border-none bg-surface-container p-0 px-2 rounded-md font-body-md text-on-surface focus:ring-1 focus:ring-primary h-8 w-16" type="number" value="2">
+</div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<div class="text-primary font-display-lg text-headline-md font-bold">$745.00</div>
+<button class="text-error font-label-sm text-label-sm mt-2 hover:underline">Remove</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Activities Section -->
+<section>
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">explore</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Activities &amp; Tours</h2>
+</div>
+<div class="grid gap-6">
+<!-- Activity 1 -->
+<div class="expense-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 flex flex-col md:flex-row gap-6 items-center">
+<div class="w-full md:w-32 h-24 rounded-lg bg-cover bg-center shrink-0" data-alt="A wide-angle landscape shot of the Blue Lagoon in Iceland, showing milky blue steaming water against dark volcanic rocks. The mood is ethereal and adventurous, with soft daylight and crisp clarity, reflecting a premium travel experience." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAIIK0Zw_KJn2uGrHbFZcBqfSpB7VHa71XJGfUwks3XyjPPKkAbT8hYdcha5gn2vLF-nWqhr0r8askjToEf6OezWlpqC6unl8UJszGQ3aDvz44kfuhvL1QTgi6aROe2P8ZL_gARf6s48-RJypr-8xVLIitGKKy6orb-uKNdpRVxtLFTFxbxj3ePBpHlRLJ2lveQIqyVP8EzlsajGOmivdcoYLEDNrzgkJ2OqIKsAt7-kx8QijigU-F1')"></div>
+<div class="flex-1 space-y-1">
+<h3 class="font-headline-md text-body-lg font-bold">Blue Lagoon Premium Entry</h3>
+<p class="text-on-surface-variant font-body-md">Grindavík • Standard Pass</p>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Date</span>
+<input class="mt-1 border-none bg-surface-container p-0 px-2 rounded-md font-body-md text-on-surface focus:ring-1 focus:ring-primary h-8" type="date" value="2024-11-13">
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Tickets</span>
+<input class="mt-1 border-none bg-surface-container p-0 px-2 rounded-md font-body-md text-on-surface focus:ring-1 focus:ring-primary h-8 w-16" type="number" value="2">
+</div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<div class="text-primary font-display-lg text-headline-md font-bold">$190.00</div>
+<button class="text-error font-label-sm text-label-sm mt-2 hover:underline">Remove</button>
+</div>
+</div>
+<!-- Activity 2 -->
+<div class="expense-card bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/30 flex flex-col md:flex-row gap-6 items-center">
+<div class="w-full md:w-32 h-24 rounded-lg bg-cover bg-center shrink-0" data-alt="A cinematic photo of a professional tour vehicle driving along a winding mountain road in Iceland during the golden hour. The lighting is dramatic and warm, emphasizing the scale of the landscape and the spirit of organized exploration." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCF6kuhxneDywTzJRLqVF9DpMUJcdieu_0MZyHPHwiZk_K42-fd1UHBdJ6WXezlVSbUWH4T1riEMwHHFSv_jBQ5zQXnxwgJzBCFL_la978r2qefQDsJGc3b-vPbJ__2atGxSGDOcziiGzkadUGUdtPIBDIE-TAH6Ja3X5Zb2j7c7Jcd5x5ItozTLFBiQnvt3ieeMkp7lmsmmIpNZEdsrEEZSkIi5Ani4XcppWWadBL6Y2G3pOz4n3mP')"></div>
+<div class="flex-1 space-y-1">
+<h3 class="font-headline-md text-body-lg font-bold">Golden Circle Private Tour</h3>
+<p class="text-on-surface-variant font-body-md">Full Day • Guided</p>
+<div class="flex items-center gap-4 mt-4">
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Date</span>
+<input class="mt-1 border-none bg-surface-container p-0 px-2 rounded-md font-body-md text-on-surface focus:ring-1 focus:ring-primary h-8" type="date" value="2024-11-14">
+</div>
+<div class="flex flex-col">
+<span class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Guests</span>
+<input class="mt-1 border-none bg-surface-container p-0 px-2 rounded-md font-body-md text-on-surface focus:ring-1 focus:ring-primary h-8 w-16" type="number" value="2">
+</div>
+</div>
+</div>
+<div class="text-right shrink-0">
+<div class="text-primary font-display-lg text-headline-md font-bold">$420.00</div>
+<button class="text-error font-label-sm text-label-sm mt-2 hover:underline">Remove</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Add More CTA -->
+<button class="w-full border-2 border-dashed border-outline-variant rounded-xl py-8 flex flex-col items-center justify-center gap-3 text-on-surface-variant hover:border-primary hover:text-primary transition-all group">
+<span class="material-symbols-outlined text-4xl group-hover:scale-110 transition-transform">add_circle</span>
+<span class="font-headline-md text-body-lg font-bold">Add another stay or activity</span>
+</button>
+</div>
+</div>
+<!-- Sticky Sidebar -->
+<aside class="w-full md:w-[380px] sticky top-24 space-y-6">
+<div class="bg-surface-container-high rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-white/50">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Cost Summary</h3>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Accommodation (3 nights)</span>
+<span class="font-bold text-on-surface">$745.00</span>
+</div>
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Activities &amp; Tours</span>
+<span class="font-bold text-on-surface">$610.00</span>
+</div>
+<div class="flex justify-between items-center text-body-md">
+<span class="text-on-surface-variant">Service Fee</span>
+<span class="font-bold text-on-surface">$45.00</span>
+</div>
+<div class="pt-4 border-t border-outline-variant">
+<div class="flex justify-between items-end">
+<div>
+<span class="text-label-sm font-label-sm text-outline uppercase">Total Estimate</span>
+<div class="font-display-lg text-display-lg-mobile md:text-[36px] font-extrabold text-primary leading-tight mt-1">$1,400.00</div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant mb-1">USD</span>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-xl font-headline-md text-body-lg font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:translate-y-[-2px] active:scale-[0.98] transition-all mb-4">
+                        Proceed to Book
+                    </button>
+<p class="text-center text-label-sm font-label-sm text-on-surface-variant">Price includes taxes and basic insurance</p>
+</div>
+<!-- Secondary Actions -->
+<div class="bg-surface-container-low rounded-2xl p-6 border border-outline-variant/30">
+<button class="w-full flex items-center justify-between text-on-surface hover:text-primary transition-colors py-2 group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined">share</span>
+<span class="font-body-md font-bold">Share Itinerary</span>
+</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+<div class="h-[1px] bg-outline-variant/30 my-3"></div>
+<button class="w-full flex items-center justify-between text-on-surface hover:text-primary transition-colors py-2 group">
+<span class="flex items-center gap-3">
+<span class="material-symbols-outlined">download</span>
+<span class="font-body-md font-bold">Export PDF</span>
+</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+</button>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container dark:bg-surface-container-high border-t border-outline-variant dark:border-outline">
+<div class="max-w-[1280px] mx-auto px-gutter py-stack-lg flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<span class="font-display-lg text-display-lg font-bold text-primary">TRIPPL</span>
+<p class="text-on-surface-variant font-body-md text-body-md text-center md:text-left">© 2024 TRIPPL Planning. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interactions and UI Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggle = document.getElementById('viewToggle');
+            const sections = document.querySelectorAll('section');
+            
+            toggle.addEventListener('change', (e) => {
+                // Visual feedback for toggle change
+                const body = document.querySelector('main');
+                body.style.opacity = '0.5';
+                setTimeout(() => {
+                    body.style.opacity = '1';
+                    // In a real app, this would switch between list and summary layouts
+                    if(e.target.checked) {
+                        console.log('Switching to Combined View');
+                    } else {
+                        console.log('Switching to Individual View');
+                    }
+                }, 200);
+            });
+
+            // Smooth scroll header effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 20) {
+                    header.classList.add('shadow-lg');
+                } else {
+                    header.classList.remove('shadow-lg');
+                }
+            });
+
+            // Active scale effect for all interactive elements
+            const interactives = document.querySelectorAll('button, .expense-card, input');
+            interactives.forEach(el => {
+                el.addEventListener('mousedown', () => el.classList.add('scale-[0.99]'));
+                el.addEventListener('mouseup', () => el.classList.remove('scale-[0.99]'));
+                el.addEventListener('mouseleave', () => el.classList.remove('scale-[0.99]'));
+            });
+        });
+    </script>
+
+
+
+
+
+
+</body></html>

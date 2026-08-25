@@ -1,0 +1,321 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Checkout | TRIPPL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5f5e5e",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#341100",
+                    "surface": "#f6faf9",
+                    "secondary-container": "#e4e2e1",
+                    "outline": "#6e7979",
+                    "surface-container-highest": "#dfe3e2",
+                    "on-tertiary-fixed-variant": "#733512",
+                    "surface-container": "#ebefee",
+                    "on-secondary-fixed-variant": "#474747",
+                    "background": "#f6faf9",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-surface": "#181c1c",
+                    "inverse-primary": "#76d6d5",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#93f2f2",
+                    "on-primary-fixed": "#002020",
+                    "surface-container-low": "#f0f4f3",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#e3fffe",
+                    "on-secondary-container": "#656464",
+                    "surface-bright": "#f6faf9",
+                    "on-tertiary-container": "#fff9f7",
+                    "primary": "#006565",
+                    "surface-dim": "#d7dbda",
+                    "surface-variant": "#dfe3e2",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#006a6a",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "tertiary-fixed": "#ffdbcb",
+                    "tertiary-container": "#a96039",
+                    "primary-container": "#008080",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e5e9e8",
+                    "on-background": "#181c1c",
+                    "inverse-on-surface": "#edf2f1",
+                    "outline-variant": "#bdc9c8",
+                    "primary-fixed-dim": "#76d6d5",
+                    "inverse-surface": "#2c3131",
+                    "on-surface-variant": "#3e4949",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "tertiary": "#8b4823"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .step-active { @apply text-primary font-bold; }
+        .step-line { @apply h-0.5 w-12 bg-outline-variant mx-4; }
+        .step-line-active { @apply bg-primary; }
+        input:focus { @apply ring-2 ring-primary outline-none border-primary; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Simplified Top Bar for Checkout Focus -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]"><div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between"><a href="{{DATA:SCREEN:SCREEN_9}}" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a><nav class="hidden md:flex gap-8 items-center h-full"><a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_9}}">Home</a><a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_8}}">Explore</a><a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_6}}">Bookings</a><a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_3}}">My Trips</a></nav><div class="flex items-center gap-4"><a href="{{DATA:SCREEN:SCREEN_8}}" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a><a href="{{DATA:SCREEN:SCREEN_3}}" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a></div></div></header>
+<main class="flex-grow max-w-[1280px] mx-auto w-full px-gutter py-stack-lg">
+<!-- Step Indicator -->
+<nav class="flex items-center justify-center mb-12 overflow-x-auto whitespace-nowrap">
+<div class="flex items-center text-on-surface-variant">
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm">1</span>
+<span class="font-label-sm">Travelers</span>
+</div>
+<div class="h-px w-8 md:w-16 bg-primary mx-4"></div>
+<div class="flex items-center gap-2 text-primary font-bold">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm">2</span>
+<span class="font-label-sm">Payment</span>
+</div>
+<div class="h-px w-8 md:w-16 bg-outline-variant mx-4"></div>
+<div class="flex items-center gap-2 opacity-50">
+<span class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center text-sm text-outline">3</span>
+<span class="font-label-sm">Confirm</span>
+</div>
+</div>
+</nav>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Form & Payment -->
+<div class="lg:col-span-8 space-y-stack-lg">
+<!-- Section: Traveler Details -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">person</span>
+<h2 class="font-headline-md text-headline-md">Traveler Details</h2>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-stack-md">
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">First Name</label>
+<input class="p-4 rounded-lg bg-surface border border-outline-variant focus:border-primary transition-all" placeholder="John" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">Last Name</label>
+<input class="p-4 rounded-lg bg-surface border border-outline-variant focus:border-primary transition-all" placeholder="Doe" type="text">
+</div>
+<div class="flex flex-col gap-2 md:col-span-2">
+<label class="font-label-sm text-on-surface-variant">Email Address</label>
+<input class="p-4 rounded-lg bg-surface border border-outline-variant focus:border-primary transition-all" placeholder="john.doe@example.com" type="email">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">Phone Number</label>
+<input class="p-4 rounded-lg bg-surface border border-outline-variant focus:border-primary transition-all" placeholder="+1 (555) 000-0000" type="tel">
+</div>
+<div class="flex flex-col gap-2">
+<label class="font-label-sm text-on-surface-variant">Country of Residence</label>
+<select class="p-4 rounded-lg bg-surface border border-outline-variant focus:border-primary transition-all">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Germany</option>
+<option>Japan</option>
+</select>
+</div>
+</form>
+</section>
+<!-- Section: Payment Method -->
+<section class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary">payments</span>
+<h2 class="font-headline-md text-headline-md">Payment Method</h2>
+</div>
+<div class="space-y-4">
+<!-- Credit/Debit Card Option -->
+<div class="border-2 border-primary bg-primary/5 p-5 rounded-lg cursor-pointer">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-4 border-primary flex items-center justify-center"></div>
+<span class="font-bold">Credit / Debit Card</span>
+</div>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-secondary opacity-60">credit_card</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="col-span-2">
+<input class="w-full p-4 rounded-lg bg-white border border-outline-variant" placeholder="Card Number" type="text">
+</div>
+<input class="p-4 rounded-lg bg-white border border-outline-variant" placeholder="MM/YY" type="text">
+<input class="p-4 rounded-lg bg-white border border-outline-variant" placeholder="CVV" type="text">
+</div>
+</div>
+<!-- UPI Option -->
+<div class="border border-outline-variant p-5 rounded-lg flex items-center justify-between hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant"></div>
+<span class="font-medium">UPI / Digital Wallets</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-60">account_balance_wallet</span>
+</div>
+<!-- PayPal Option -->
+<div class="border border-outline-variant p-5 rounded-lg flex items-center justify-between hover:border-primary transition-colors cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant"></div>
+<span class="font-medium">PayPal</span>
+</div>
+<span class="material-symbols-outlined text-secondary opacity-60">payments</span>
+</div>
+</div>
+</section>
+<!-- Trust Indicators -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex items-start gap-4 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-[24px]">verified_user</span>
+<div>
+<p class="font-bold text-on-surface text-sm">Secure Payment</p>
+<p class="text-xs text-on-surface-variant">Your data is encrypted and processed via industry-leading gateways.</p>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-surface-container-low rounded-lg">
+<span class="material-symbols-outlined text-primary text-[24px]">event_busy</span>
+<div>
+<p class="font-bold text-on-surface text-sm">Free Cancellation</p>
+<p class="text-xs text-on-surface-variant">Cancel up to 24 hours before your trip for a full refund on eligible bookings.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<aside class="lg:col-span-4 sticky top-28 space-y-stack-md">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_12px_40px_rgba(0,0,0,0.08)] border border-outline-variant/30">
+<h3 class="font-headline-md text-headline-md mb-6">Order Summary</h3>
+<div class="flex gap-4 mb-6 pb-6 border-b border-outline-variant">
+<div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, high-quality photograph of a luxury boutique hotel villa nestled on the cliffs of Santorini at sunset. The architectural style is minimalist Cycladic, with smooth white walls and deep turquoise pool water reflecting the golden sky. The lighting is warm and evocative, creating a sophisticated and adventurous mood. The color palette features whites, vibrant teals, and soft orange hues." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvFXL6MDkFM4x5FoCphs-jTMpmtxl_yNPjihqeD-cBEp5yN6VGBwJmsBq4-VmSPPqwVrgKNRSPcpz9sYupFdoa7w_s-QF0P9PGTc-tcvovWqxayzaPQDEu6oB6BFzvic1tBSOHZnO5lHNvPiKqAO2qWSnas5l894Bttzq5_H9cVIb3IDVZc7vRVb9nqLvNslbSZ9SmbEhYuNFU0iBZTMwF-oCWeLnVuAhl_iyICqo2uj0c-3QoDVrX">
+</div>
+<div>
+<p class="font-bold text-on-surface">Santorini Sun &amp; Sea</p>
+<p class="text-sm text-on-surface-variant">4 Days • 2 Travelers</p>
+<p class="text-primary font-bold mt-1">$1,240.00</p>
+</div>
+</div>
+<div class="space-y-3 mb-6">
+<div class="flex justify-between text-on-surface-variant">
+<span class="">Subtotal</span>
+<span class="">$1,240.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="">Service Fee</span>
+<span class="">$45.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="">Taxes</span>
+<span class="">$112.50</span>
+</div>
+<div class="flex justify-between font-bold text-lg pt-3 border-t border-outline-variant text-on-surface">
+<span class="">Total</span>
+<span class="">$1,397.50</span>
+</div>
+</div>
+<div class="mb-6">
+<label class="font-label-sm text-on-surface-variant mb-2 block">Promo Code</label>
+<div class="flex gap-2">
+<input class="flex-grow p-3 rounded-lg border border-outline-variant bg-surface text-sm uppercase" placeholder="SUMMER24" type="text">
+<button class="px-4 bg-secondary-container text-on-secondary-container rounded-lg font-bold text-sm hover:bg-outline-variant transition-colors">Apply</button>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-white rounded-full font-bold text-lg shadow-lg active:scale-95 transition-transform duration-150 mb-4 flex items-center justify-center gap-2">
+<span class="">Pay &amp; Confirm Booking</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-[11px] text-on-surface-variant leading-relaxed">
+                        By clicking "Pay &amp; Confirm Booking", you agree to our <a class="underline" href="#">Terms of Service</a> and <a class="underline" href="#">Privacy Policy</a>.
+                    </p>
+</div>
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-4 rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<p class="text-xs font-medium">You'll earn <strong>240 TRIPPL Points</strong> with this purchase!</p>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-gutter py-stack-lg flex flex-col md:flex-row justify-between items-center gap-stack-md">
+<div class="flex flex-col gap-2 items-center md:items-start">
+<div class="font-display-lg text-primary font-bold">TRIPPL</div>
+<p class="text-on-surface-variant text-body-md text-center md:text-left">© 2024 TRIPPL Planning. All rights reserved.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-2">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-body-md" href="#">Contact Support</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Interaction logic for payment selection
+        document.querySelectorAll('.payment-option').forEach(option => {
+            option.addEventListener('click', () => {
+                // Clear all active states
+                document.querySelectorAll('.payment-option').forEach(o => {
+                    o.classList.remove('border-primary', 'bg-primary/5');
+                    o.classList.add('border-outline-variant');
+                    const circle = o.querySelector('.select-circle');
+                    if(circle) circle.classList.remove('border-4', 'border-primary');
+                });
+                
+                // Set active state
+                option.classList.add('border-primary', 'bg-primary/5');
+                option.classList.remove('border-outline-variant');
+                const circle = option.querySelector('.select-circle');
+                if(circle) circle.classList.add('border-4', 'border-primary');
+            });
+        });
+    </script>
+
+
+</body></html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Profile - TRIPPL</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#002020",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-primary": "#ffffff",
+                    "on-primary-container": "#e3fffe",
+                    "inverse-on-surface": "#edf2f1",
+                    "outline-variant": "#bdc9c8",
+                    "surface-tint": "#006a6a",
+                    "primary-container": "#008080",
+                    "tertiary-container": "#a96039",
+                    "surface-variant": "#dfe3e2",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#dfe3e2",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-container": "#656464",
+                    "surface-bright": "#f6faf9",
+                    "inverse-surface": "#2c3131",
+                    "surface-dim": "#d7dbda",
+                    "secondary-container": "#e4e2e1",
+                    "secondary-fixed": "#e4e2e1",
+                    "tertiary": "#8b4823",
+                    "surface": "#f6faf9",
+                    "on-surface-variant": "#3e4949",
+                    "error-container": "#ffdad6",
+                    "surface-container-high": "#e5e9e8",
+                    "on-error-container": "#93000a",
+                    "primary": "#006565",
+                    "background": "#f6faf9",
+                    "on-surface": "#181c1c",
+                    "tertiary-fixed": "#ffdbcb",
+                    "outline": "#6e7979",
+                    "primary-fixed-dim": "#76d6d5",
+                    "on-background": "#181c1c",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "primary-fixed": "#93f2f2",
+                    "on-tertiary-fixed-variant": "#733512",
+                    "on-tertiary-container": "#fff9f7",
+                    "on-secondary-fixed-variant": "#474747",
+                    "on-secondary": "#ffffff",
+                    "surface-container-low": "#f0f4f3",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "inverse-primary": "#76d6d5",
+                    "on-tertiary-fixed": "#341100",
+                    "surface-container": "#ebefee",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "secondary": "#5f5e5e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px",
+                    "2xl": "12px",
+                    "3xl": "16px"
+            },
+            "spacing": {
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "margin-desktop": "64px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Work Sans"
+                    ],
+                    "label-sm": [
+                            "Work Sans"
+                    ],
+                    "display-lg-mobile": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "body-lg": [
+                            "Work Sans"
+                    ],
+                    "display-lg": [
+                            "Plus Jakarta Sans"
+                    ],
+                    "headline-md": [
+                            "Plus Jakarta Sans"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "label-sm": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "display-lg-mobile": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "18px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "display-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between">
+<a href="{{DATA:SCREEN:SCREEN_9}}" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_9}}">Home</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_8}}">Explore</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_6}}">Bookings</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="{{DATA:SCREEN:SCREEN_3}}">My Trips</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="{{DATA:SCREEN:SCREEN_8}}" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a>
+<a href="{{DATA:SCREEN:SCREEN_3}}" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a>
+</div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-[1280px] mx-auto px-gutter py-margin-desktop space-y-margin-desktop">
+<!-- User Header Profile Area -->
+<section class="flex flex-col md:flex-row items-center md:items-start gap-8 bg-surface-container-lowest rounded-[24px] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.04)] relative overflow-hidden">
+<!-- Decorative background blur -->
+<div class="absolute -top-32 -right-32 w-96 h-96 bg-primary opacity-5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="relative w-32 h-32 shrink-0">
+<img class="w-full h-full object-cover rounded-full border-4 border-surface shadow-sm" data-alt="A professional, high-quality portrait of a traveler in a sunny location, smiling. The photo should be bright, well-lit, and fit a clean, modern UI aesthetic. The traveler is wearing casual but stylish clothing. Shallow depth of field with a subtly blurred background to focus on the subject." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIGXnGUVLMHOMoudBHzB9GF86jm38Rvo-E7sKpMwU0LQkwQA4da87t10pzJtzFoAPoJbB5VTLAYkQJrl-zWMJigfiwCfWDSBwcVICxp1fo7Nu-QA-u_u3a7cf6Lkg4xCaiY6tPmAlhfhEVlQA7J2PXffFuWO8rg_depXrbZijraE5YcuAzgP02etGZ3n9yEbMlfSi8DhlyXFPTK8POg_xYyipk5FXF2iwaHufQxzAgxZEsmiU_3WXz">
+<button class="absolute bottom-0 right-0 w-8 h-8 bg-primary text-on-primary rounded-full flex items-center justify-center hover:bg-on-primary-fixed-variant transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</div>
+<div class="flex-1 text-center md:text-left z-10">
+<h1 class="font-headline-md text-headline-md text-on-surface mb-2">Eleanor Vance</h1>
+<div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-on-surface-variant font-body-md text-body-md mb-4">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">location_on</span> Seattle, WA</span>
+<span class="hidden md:inline text-outline-variant">•</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">workspace_premium</span> Global Explorer</span>
+<span class="hidden md:inline text-outline-variant">•</span>
+<span class="">Member since 2021</span>
+</div>
+<div class="flex flex-wrap justify-center md:justify-start gap-3 mt-stack-md">
+<span class="px-3 py-1 bg-primary-container/10 text-primary-container rounded-full font-label-sm text-label-sm">Photography</span>
+<span class="px-3 py-1 bg-primary-container/10 text-primary-container rounded-full font-label-sm text-label-sm">Culinary Travel</span>
+<span class="px-3 py-1 bg-primary-container/10 text-primary-container rounded-full font-label-sm text-label-sm">Hiking</span>
+</div>
+</div>
+<div class="flex md:flex-col gap-4 w-full md:w-auto z-10">
+<button class="flex-1 md:flex-none px-6 py-2.5 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 shadow-sm text-center">
+                    Edit Profile
+                </button>
+<button class="flex-1 md:flex-none px-6 py-2.5 bg-transparent text-on-surface border border-outline-variant rounded-full font-label-sm text-label-sm hover:bg-surface-container transition-colors active:scale-95 text-center">
+                    Share Profile
+                </button>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Sidebar Navigation & Stats -->
+<aside class="lg:col-span-3 space-y-8">
+<!-- Navigation -->
+<nav class="bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-4 flex flex-col gap-2 sticky top-28">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">flight</span>
+<span class="font-label-sm text-label-sm">My Trips</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-sm text-label-sm">Saved Places</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</a>
+</nav>
+<!-- Stats Bento -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] p-6 space-y-6">
+<h3 class="font-headline-md text-headline-md text-on-surface text-[18px]">Travel Stats</h3>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="font-display-lg text-[32px] text-primary mb-1">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Trips Taken</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-xl flex flex-col items-center justify-center text-center">
+<span class="font-display-lg text-[32px] text-tertiary-container mb-1">8</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Countries</span>
+</div>
+<div class="col-span-2 bg-gradient-to-br from-primary-container to-primary text-on-primary-container p-4 rounded-xl flex items-center justify-between shadow-sm">
+<div>
+<span class="block font-label-sm text-label-sm opacity-90">TRIPPL Points</span>
+<span class="block font-headline-md text-[24px] font-bold mt-1">4,250</span>
+</div>
+<span class="material-symbols-outlined text-[32px] opacity-80" style="font-variation-settings: 'FILL' 1;">stars</span>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area - My Trips -->
+<div class="lg:col-span-9 space-y-10">
+<!-- Upcoming Trips Section -->
+<section>
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline-md text-headline-md text-on-surface">Upcoming Trips</h2>
+<button class="text-primary font-label-sm text-label-sm hover:underline">View All</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Trip Card 1 -->
+<div class="bg-surface-container-lowest rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] group hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] transition-all duration-300 cursor-pointer">
+<div class="relative h-48 w-full">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A beautiful, vibrant photo of the Yasaka Pagoda in Kyoto, Japan during springtime. The sky is bright blue and cherry blossoms are in bloom. The lighting is soft and inviting, fitting a modern travel application aesthetic. Clear focus on the architecture with surrounding nature." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7BA_YXSNb11Wz5tzr3FnA50vjGBeVurdCJE8E7dJdt-SU1IxiNNgAoQf9DnJFm0K95BrZSvtX_xwflYFgiQibanYT5LBebPbMH5QY0SRmSu1HDOLeNOqAvZteoTmhDR_zfuLaxeDiYDZq-0a8YWLqiVed6ECLEs_QMgrpNX74CJ-eBwQ0M6E703FwKpo7XGlmO8p72eafR1_0buWy0HLh3KHeqhvrRMgl-opvLnjw5s-_bEUKkoXr">
+<div class="absolute top-4 right-4 px-3 py-1 bg-surface/90 backdrop-blur-sm rounded-full text-on-surface font-label-sm text-label-sm flex items-center gap-1 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+                                    In 2 weeks
+                                </div>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline-md text-[20px] text-on-surface">Kyoto Cultural Immersion</h3>
+<button class="text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+<p class="text-on-surface-variant font-body-md text-body-md flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span> Oct 12 - Oct 20, 2024
+                                </p>
+<div class="flex items-center justify-between border-t border-outline-variant/30 pt-4 mt-2">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface object-cover" data-alt="Small avatar photo of a person smiling, suitable for a user icon. Bright lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2NqajxKY4IPhH1mXU9QCOmiiXR737wf5pcJ_HJIUkgxNl3xWWSqR0_zAOMzA02Mt9t1r6NaQt9lO37uiZ6V040RH-277YiAXN050fWE3MiyN0V7EJdnqiWXjLDwhkbzcHwQ9-n684N8JmqgqnkhahkG3fg27jpG3vmn-kKXyld9UsYjkEwRne5spgK9r6tYmMJbA3w3atsy8e0CtLRToDV487Nsm4t9qw1_rDM-dZAfWLd3gFZoTX">
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-high flex items-center justify-center text-xs text-on-surface-variant">+2</div>
+</div>
+<button class="px-4 py-2 bg-primary/10 text-primary font-label-sm text-label-sm rounded-full hover:bg-primary hover:text-on-primary transition-colors">
+                                        View Details
+                                    </button>
+</div>
+</div>
+</div>
+<!-- Add New Trip Card -->
+<div class="bg-surface-container-lowest rounded-[16px] border-2 border-dashed border-outline-variant hover:border-primary/50 hover:bg-surface-bright transition-colors duration-300 flex flex-col items-center justify-center p-8 min-h-[350px] cursor-pointer group text-center">
+<div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary text-[32px]">add</span>
+</div>
+<h3 class="font-headline-md text-[20px] text-on-surface mb-2">Plan a New Adventure</h3>
+<p class="text-on-surface-variant font-body-md text-body-md">Discover destinations and create your next itinerary.</p>
+</div>
+</div>
+</section>
+<hr class="border-outline-variant/30">
+<!-- Past Trips Bento Grid Layout -->
+<section>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Past Trips</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Featured Past Trip (spans 2 cols) -->
+<div class="md:col-span-2 relative bg-surface-container-lowest rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] h-64 group cursor-pointer">
+<img class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A dramatic landscape photo of the Scottish Highlands with rolling green hills and a cloudy sky. High quality, wide angle shot fitting a travel editorial style. Rich colors and deep contrast." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS7mMIFCHQU0qlsjlV4koLun0MRX7_nVCShl2Kb1HEnrkmRg9VGReGnmfBeH3ayeKO5Y_KR_fmdyHyWp5uRDYFUXkb2qbmdZJER9ovATwzj_nd4qSfsGUSBTwi7mw5iHfCgh0phktFrfLQOXTeaOGYuQ3YJiPOqpu5miH7ls3ix4QkcN3BQwkJqRaiZDAedrgbBNE0FIrkU_SvIEOSUrdK8b7PL09e4rxwrgM1Y1NJjx3XKAg4pzFy">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-6 w-full text-white">
+<span class="px-2 py-1 bg-white/20 backdrop-blur-md rounded text-xs uppercase tracking-wider mb-2 inline-block">Scotland</span>
+<h3 class="font-headline-md text-[24px] mb-1">Highlands Roadtrip</h3>
+<div class="flex items-center justify-between">
+<p class="text-white/80 font-body-md text-sm">August 2023</p>
+<button class="flex items-center gap-1 text-white hover:text-primary-fixed-dim transition-colors text-sm font-medium">
+                                        View Gallery <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Standard Past Trip -->
+<div class="bg-surface-container-lowest rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] h-64 flex flex-col group cursor-pointer">
+<div class="relative h-32 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sunny urban scene in Lisbon, Portugal, showing yellow trams and colorful tiled buildings. Bright, inviting lighting, modern travel aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXoLV7Go7-sHlxyC7mRzA1k5luSo2qYle7viSR0clBcAHzn4JqTgUb4Rm-qjwDmqRqu0z8SRWa_C6MR4qp7wgT1ycvU9KtNz_Yl90sl3DdaMFzufhhm9FJOIpO31HZT1EYDRca0kQ0Cr5EMcURhCsWxF3k6Vf2_08nYb-kc6hOrIlmvtqv5r35svLgUuZYWmFfpiJG2b7nICsQFFK7GtrJ2SpTcaUNb29PUcny9KOLzfMGn9k5g8z5">
+</div>
+<div class="p-4 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-[18px] text-on-surface line-clamp-1">Lisbon City Break</h3>
+<p class="text-on-surface-variant font-body-md text-sm mt-1">May 2023</p>
+</div>
+<button class="w-full py-2 bg-surface-container text-on-surface font-label-sm text-sm rounded-lg hover:bg-surface-dim transition-colors">
+                                     Rebook
+                                 </button>
+</div>
+</div>
+<!-- Standard Past Trip -->
+<div class="bg-surface-container-lowest rounded-[16px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] h-64 flex flex-col group cursor-pointer">
+<div class="relative h-32 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A serene view of a beach in Bali, Indonesia at sunset. Warm golden hour lighting, calm water, and a relaxed atmosphere. High-end lifestyle travel photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT7NV6aFxE2jOpe7V-3KV-Tvmh1i7CYL2aS1ieyE83RQmjqVXlq1FS5LIyL8R8sGH3ftRRgKcQbKZaH-2ZvN9J9K66vlMWwy3KbqI2b1i2nJBH_EW0L7msQCBqMmTj0CpMqfrrDhgajAYeSopMncEwT3xtuqwGer3JBP2XnUZeo6anTdCebM_YPXJvc_mjcq6TDg7rOO4tyRjnS9Jb7jpFY2etNizilt45XwpEcwhOMisY092JlzWJ">
+</div>
+<div class="p-4 flex-1 flex flex-col justify-between">
+<div>
+<h3 class="font-headline-md text-[18px] text-on-surface line-clamp-1">Bali Retreat</h3>
+<p class="text-on-surface-variant font-body-md text-sm mt-1">January 2023</p>
+</div>
+<button class="w-full py-2 bg-surface-container text-on-surface font-label-sm text-sm rounded-lg hover:bg-surface-dim transition-colors">
+                                    Rebook
+                                </button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-gutter py-stack-lg flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="font-display-lg text-display-lg font-bold text-primary">
+                TRIPPL
+            </div>
+<nav class="flex flex-wrap justify-center gap-6">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact Support</a>
+</nav>
+<div class="font-body-md text-body-md text-on-surface-variant">
+                © 2024 TRIPPL Planning. All rights reserved.
+            </div>
+</div>
+</footer>
+
+
+</body></html>
