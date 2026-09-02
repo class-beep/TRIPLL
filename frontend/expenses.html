@@ -1,0 +1,138 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Trip Builder &amp; Expenses | TRIPPL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5f5e5e",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "surface": "#f6faf9",
+                    "secondary-container": "#e4e2e1",
+                    "outline": "#6e7979",
+                    "surface-container-highest": "#dfe3e2",
+                    "surface-container": "#ebefee",
+                    "background": "#f6faf9",
+                    "on-surface": "#181c1c",
+                    "primary": "#006565",
+                    "primary-container": "#008080",
+                    "surface-container-low": "#f0f4f3",
+                    "on-surface-variant": "#3e4949"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between">
+<a href="index.html" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="index.html">Home</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="explore.html">Explore</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="booking.html">Bookings</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="planning.html">My Trips</a>
+<a class="h-full flex items-center text-primary border-b-2 border-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md font-bold" href="expenses.html">Expenses</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="explore.html" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a>
+<a href="profile.html" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1280px] mx-auto w-full px-gutter py-stack-lg">
+<div class="mb-8">
+<h1 class="text-3xl font-bold font-display-lg text-on-surface">Trip Expenses Breakdown</h1>
+<p class="text-on-surface-variant">Track budget, spent amounts, and remaining travel allowances.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<div class="lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-bold text-xl">Recent Expenses</h3>
+<button onclick="alert('Expense added successfully!')" class="px-4 py-2 bg-primary text-white rounded-lg font-bold text-sm">+ Add Expense</button>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center p-4 bg-surface rounded-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">hotel</span>
+<div>
+<p class="font-bold">Hotel Reservation</p>
+<p class="text-xs text-on-surface-variant">Komorebi Ryokan</p>
+</div>
+</div>
+<span class="font-bold text-on-surface">$1,450.00</span>
+</div>
+<div class="flex justify-between items-center p-4 bg-surface rounded-xl">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary">train</span>
+<div>
+<p class="font-bold">Bullet Train Tickets</p>
+<p class="text-xs text-on-surface-variant">JR Pass 7-Day</p>
+</div>
+</div>
+<span class="font-bold text-on-surface">$285.00</span>
+</div>
+</div>
+</div>
+</div>
+<aside class="lg:col-span-4 bg-surface-container-lowest p-6 rounded-2xl border border-outline-variant">
+<h3 class="font-bold text-xl mb-4">Budget Overview</h3>
+<div class="space-y-4">
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Total Budget</span>
+<span class="font-bold">$3,500.00</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Total Spent</span>
+<span class="font-bold text-primary">$1,735.00</span>
+</div>
+<div class="w-full bg-surface-container h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-1/2"></div>
+</div>
+<div class="flex justify-between pt-2">
+<span class="text-on-surface-variant">Remaining</span>
+<span class="font-bold text-green-700">$1,765.00</span>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<footer class="w-full mt-auto bg-surface-container border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-gutter py-6 text-center">
+<p class="text-on-surface-variant font-body-md">© 2024 TRIPPL Planning. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

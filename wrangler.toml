@@ -1,0 +1,6 @@
+name = "trippl"
+compatibility_date = "2024-09-23"
+
+# Direct Cloudflare Wrangler to auto-detect frontend/ as static assets directory
+[assets]
+directory = "./frontend"

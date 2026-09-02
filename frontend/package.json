@@ -1,0 +1,14 @@
+{
+  "name": "trippl-frontend",
+  "version": "1.0.0",
+  "description": "TRIPPL Smart Travel Planner - Web Frontend Module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'Static build complete'",
+    "deploy": "npx wrangler pages deploy ."
+  },
+  "keywords": ["travel", "planner", "frontend", "cloudflare-pages"],
+  "author": "",
+  "license": "ISC"
+}

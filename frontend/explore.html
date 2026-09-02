@@ -1,0 +1,315 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Explore Panipat | TRIPPL</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5f5e5e",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#341100",
+                    "surface": "#f6faf9",
+                    "secondary-container": "#e4e2e1",
+                    "outline": "#6e7979",
+                    "surface-container-highest": "#dfe3e2",
+                    "on-tertiary-fixed-variant": "#733512",
+                    "surface-container": "#ebefee",
+                    "on-secondary-fixed-variant": "#474747",
+                    "background": "#f6faf9",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-surface": "#181c1c",
+                    "inverse-primary": "#76d6d5",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#93f2f2",
+                    "on-primary-fixed": "#002020",
+                    "surface-container-low": "#f0f4f3",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#e3fffe",
+                    "on-secondary-container": "#656464",
+                    "surface-bright": "#f6faf9",
+                    "on-tertiary-container": "#fff9f7",
+                    "primary": "#006565",
+                    "surface-dim": "#d7dbda",
+                    "surface-variant": "#dfe3e2",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#006a6a",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "tertiary-fixed": "#ffdbcb",
+                    "tertiary-container": "#a96039",
+                    "primary-container": "#008080",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e5e9e8",
+                    "on-background": "#181c1c",
+                    "inverse-on-surface": "#edf2f1",
+                    "outline-variant": "#bdc9c8",
+                    "primary-fixed-dim": "#76d6d5",
+                    "inverse-surface": "#2c3131",
+                    "on-surface-variant": "#3e4949",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "tertiary": "#8b4823"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #bdc9c8;
+            border-radius: 10px;
+        }
+        .glass-effect {
+            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between">
+<a href="index.html" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="index.html">Home</a>
+<a class="h-full flex items-center text-primary border-b-2 border-primary font-bold transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="explore.html">Explore</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="booking.html">Bookings</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="planning.html">My Trips</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="expenses.html">Expenses</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="explore.html" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a>
+<a href="profile.html" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow max-w-[1280px] mx-auto w-full px-gutter py-stack-lg">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between mb-stack-lg gap-stack-md">
+<div>
+<div class="flex items-center gap-2 text-primary mb-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest">Local Discovery</span>
+</div>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface">Exploring near Panipat</h1>
+</div>
+<div class="flex flex-wrap items-center gap-stack-md">
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-sm text-label-sm hover:opacity-90 transition-opacity active:scale-95" onclick="requestLocation()">
+<span class="material-symbols-outlined">my_location</span>
+                    Use my location
+                </button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-outline-variant text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors active:scale-95" id="mapToggle">
+<span class="material-symbols-outlined">map</span>
+                    Show Map
+                </button>
+</div>
+</header>
+<!-- Two Column Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-stack-lg items-start">
+<!-- Left Sidebar Filters -->
+<aside class="lg:col-span-3 sticky top-24 space-y-stack-lg">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="flex items-center justify-between mb-6">
+<h3 class="font-headline-md text-headline-md">Filters</h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Reset</button>
+</div>
+<!-- Categories -->
+<div class="space-y-4 mb-8">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Categories</p>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-md group-hover:text-primary transition-colors">Hotels</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-md group-hover:text-primary transition-colors">Attractions</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox">
+<span class="text-body-md group-hover:text-primary transition-colors">Hidden Places</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div class="space-y-4 mb-8">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Price Range</p>
+<div class="flex items-center justify-between gap-2">
+<button class="flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:border-primary hover:text-primary transition-all">$</button>
+<button class="flex-1 py-2 border border-primary bg-primary-container text-primary rounded-lg text-label-sm">$$</button>
+<button class="flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:border-primary hover:text-primary transition-all">$$$</button>
+<button class="flex-1 py-2 border border-outline-variant rounded-lg text-label-sm hover:border-primary hover:text-primary transition-all">$$$$</button>
+</div>
+</div>
+<!-- Rating -->
+<div class="space-y-4">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase">Minimum Rating</p>
+<div class="space-y-2">
+<input class="w-full h-2 bg-surface-container-highest rounded-full appearance-none accent-primary cursor-pointer" max="5" min="1" step="0.5" type="range" value="4">
+<div class="flex justify-between text-label-sm text-on-surface-variant">
+<span class="">1★</span>
+<span class="">5★</span>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Right Column Grid -->
+<div class="lg:col-span-9">
+<div class="flex flex-col sm:flex-row gap-4 mb-stack-lg items-center justify-between">
+<div class="relative w-full sm:max-w-md">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full pl-12 pr-4 py-3 bg-surface-container-lowest border border-outline-variant rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" placeholder="Search places, activities..." type="text">
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<span class="text-label-sm">Sort by:</span>
+<select class="bg-transparent font-label-sm border-none focus:ring-0 cursor-pointer text-primary">
+<option>Recommended</option>
+<option>Price: Low to High</option>
+<option>Distance</option>
+<option>Rating</option>
+</select>
+</div>
+</div>
+<!-- Results Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<!-- Place Card 1 -->
+<div onclick="window.location.href='booking.html'" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQhkDfG0oRVnxwJu1zTjW57HGQyVYb2STU3TAXIkAkprArFRiUR__52H4cXN-sOxH60g2hWNtLitak-kC9TZ7JlCJWxaDIXk8bVstkEH4cmeOsOOfIhIskybSDQEMegsD4YCyG-2d_FWKYe94L7-fzXn21u2KDtFL5UXhwssdJpG-d8MBH2KtSMnNST5t1uKUCuqsV1OawMvK59nvdaTeeTkzBmhRJveqnkS3igL6R_msTIY2V9EEw">
+<div class="absolute top-3 right-3">
+<button class="w-8 h-8 rounded-full bg-surface/80 glass-effect flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-3 left-3 flex gap-2">
+<span class="px-2 py-1 bg-primary/90 text-on-primary text-[10px] uppercase font-bold rounded">Attraction</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-[18px] text-on-surface leading-tight">Panipat War Memorial</h4>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm">4.8</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-label-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                2.4 km away
+                            </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant">
+<div class="text-on-surface-variant font-label-sm">
+                                    Entry: <span class="text-on-surface font-bold">Free</span>
+</div>
+<button class="text-primary font-bold text-label-sm flex items-center gap-1 group/btn">
+                                    View details
+                                    <span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Place Card 2 -->
+<div onclick="window.location.href='booking.html'" class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer">
+<div class="relative h-48">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1Zljn22EOgPwSHEfVM6kBrfxPPBnV4LX8x9YOfpG7lW9hn1UG0uCw_8UI4W-17UWZmIIdMvs3HssD7tqPZ841Z1ct7ObDq5TzxdbgmJ2_Y0OxFfWAJZYspUi7IqH6M4pTky6g7_9Wf_8Y4Zrd4pjcOMlYjz4NBwWU9yF5pfwNNOgQORtb6CaPaijW4OSFKWpAhWgq8vb9NsJStyUBZ_vA5Md3hxa7zxi1cvI6mkfxQk__aCfL9SFk">
+<div class="absolute top-3 right-3">
+<button class="w-8 h-8 rounded-full bg-surface/80 glass-effect flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-3 left-3 flex gap-2">
+<span class="px-2 py-1 bg-tertiary text-on-primary text-[10px] uppercase font-bold rounded">Hotel</span>
+</div>
+</div>
+<div class="p-5">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-headline-md text-[18px] text-on-surface leading-tight">Heritage Grand Hotel</h4>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm">4.5</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-label-sm flex items-center gap-1 mb-4">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                                1.1 km away
+                            </p>
+<div class="flex justify-between items-center pt-4 border-t border-outline-variant">
+<div class="text-on-surface-variant font-label-sm">
+                                    Price: <span class="text-on-surface font-bold">$$</span>
+</div>
+<button class="text-primary font-bold text-label-sm flex items-center gap-1 group/btn">
+                                    Check rooms
+                                    <span class="material-symbols-outlined text-[16px] group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-gutter py-6 text-center md:text-left">
+<p class="text-on-surface-variant font-body-md">© 2024 TRIPPL Planning. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        function requestLocation() {
+            alert("Location synchronized for Panipat region recommendations.");
+        }
+</script>
+</body></html>

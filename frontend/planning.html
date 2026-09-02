@@ -1,0 +1,104 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>My Trips & Planning | TRIPPL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5f5e5e",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "surface": "#f6faf9",
+                    "secondary-container": "#e4e2e1",
+                    "outline": "#6e7979",
+                    "surface-container-highest": "#dfe3e2",
+                    "surface-container": "#ebefee",
+                    "background": "#f6faf9",
+                    "on-surface": "#181c1c",
+                    "primary": "#006565",
+                    "primary-container": "#008080",
+                    "surface-container-low": "#f0f4f3",
+                    "on-surface-variant": "#3e4949"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between">
+<a href="index.html" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="index.html">Home</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="explore.html">Explore</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="booking.html">Bookings</a>
+<a class="h-full flex items-center text-primary border-b-2 border-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md font-bold" href="planning.html">My Trips</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="expenses.html">Expenses</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="explore.html" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a>
+<a href="profile.html" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1280px] mx-auto w-full px-gutter py-stack-lg">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h1 class="text-3xl font-bold font-display-lg text-on-surface">My Travel Plans</h1>
+<p class="text-on-surface-variant">Manage your upcoming itineraries and saved trips.</p>
+</div>
+<button onclick="window.location.href='explore.html'" class="px-6 py-3 bg-primary text-white rounded-xl font-bold hover:brightness-110">Create New Trip</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant">
+<span class="px-3 py-1 bg-primary-container/20 text-primary font-bold text-xs rounded-full">Upcoming</span>
+<h3 class="text-xl font-bold mt-4 mb-2">Kyoto Autumn Escape</h3>
+<p class="text-sm text-on-surface-variant mb-4">6 Nights · Oct 12 - Oct 18, 2024</p>
+<button onclick="window.location.href='booking.html'" class="w-full py-2 bg-surface-container text-primary font-bold rounded-lg hover:bg-primary-container/20">View Itinerary</button>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container font-bold text-xs rounded-full">Completed</span>
+<h3 class="text-xl font-bold mt-4 mb-2">Udaipur Royal Heritage</h3>
+<p class="text-sm text-on-surface-variant mb-4">4 Nights · March 15 - March 19, 2024</p>
+<button onclick="window.location.href='expenses.html'" class="w-full py-2 bg-surface-container text-primary font-bold rounded-lg hover:bg-primary-container/20">View Expenses</button>
+</div>
+</div>
+</main>
+<footer class="w-full mt-auto bg-surface-container border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-gutter py-6 text-center">
+<p class="text-on-surface-variant font-body-md">© 2024 TRIPPL Planning. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

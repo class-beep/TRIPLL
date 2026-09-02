@@ -1,0 +1,356 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>TRIPPL | Refined Travel Planning</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5f5e5e",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed": "#341100",
+                    "surface": "#f6faf9",
+                    "secondary-container": "#e4e2e1",
+                    "outline": "#6e7979",
+                    "surface-container-highest": "#dfe3e2",
+                    "on-tertiary-fixed-variant": "#733512",
+                    "surface-container": "#ebefee",
+                    "on-secondary-fixed-variant": "#474747",
+                    "background": "#f6faf9",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "on-surface": "#181c1c",
+                    "inverse-primary": "#76d6d5",
+                    "on-primary-fixed-variant": "#004f4f",
+                    "on-secondary": "#ffffff",
+                    "primary-fixed": "#93f2f2",
+                    "on-primary-fixed": "#002020",
+                    "surface-container-low": "#f0f4f3",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#e3fffe",
+                    "on-secondary-container": "#656464",
+                    "surface-bright": "#f6faf9",
+                    "on-tertiary-container": "#fff9f7",
+                    "primary": "#006565",
+                    "surface-dim": "#d7dbda",
+                    "surface-variant": "#dfe3e2",
+                    "on-error-container": "#93000a",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#006a6a",
+                    "secondary-fixed-dim": "#c8c6c6",
+                    "tertiary-fixed": "#ffdbcb",
+                    "tertiary-container": "#a96039",
+                    "primary-container": "#008080",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e5e9e8",
+                    "on-background": "#181c1c",
+                    "inverse-on-surface": "#edf2f1",
+                    "outline-variant": "#bdc9c8",
+                    "primary-fixed-dim": "#76d6d5",
+                    "inverse-surface": "#2c3131",
+                    "on-surface-variant": "#3e4949",
+                    "tertiary-fixed-dim": "#ffb692",
+                    "tertiary": "#8b4823"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "display-lg-mobile": ["Plus Jakarta Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "body-lg": ["Work Sans"],
+                    "label-sm": ["Work Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen selection:bg-primary-fixed-dim selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between">
+<a href="index.html" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="h-full flex items-center text-primary border-b-2 border-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md font-bold" href="index.html">Home</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="explore.html">Explore</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="booking.html">Bookings</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="planning.html">My Trips</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="expenses.html">Expenses</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="explore.html" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a>
+<a href="profile.html" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative h-[640px] w-full overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-[10000ms] scale-105 hover:scale-100" data-alt="A breathtaking cinematic wide-angle shot of a serene crystalline turquoise alpine lake surrounded by snow-capped jagged peaks at sunset." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDH36_I2lGxy9CIZ5h8KWetax-L_WODUgBcNisewMVDjglVs91ZM9F44sULLdWYYH5zSlAyKU_8B__gQty-x2OzuL7ZWxRKu6dTmGbiWpJlwlFJ0mkL-SQEn8Dz4eKXCVvp4GBfYeyu_HdhBNuUAkQGTyhCtu_IdNYWvJ7Ir9cW7UkjXrg9c3XuqJNYOV6gy2-dhBtFwdMaM_T3Rc-2lBSGExVacM7x6b0BKLNX5Q9A_m75tc7w5JBB')">
+</div>
+<div class="absolute inset-0 bg-black/20"></div>
+</div>
+<div class="relative z-10 max-w-[1280px] mx-auto px-gutter h-full flex flex-col items-center justify-center text-center">
+<h1 class="font-display-lg text-display-lg md:text-[64px] text-white mb-stack-lg drop-shadow-lg">Where do you want to go?</h1>
+<!-- Search Overlay -->
+<div class="glass-panel w-full max-w-4xl p-stack-md rounded-[24px] shadow-2xl flex flex-col md:flex-row gap-4">
+<div class="flex-1 flex items-center gap-3 px-4 py-3 bg-surface-container-lowest rounded-xl border border-outline-variant focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-outline">location_on</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md font-body-md outline-none text-on-surface" placeholder="Search destinations" type="text">
+</div>
+<div class="flex-1 flex items-center gap-3 px-4 py-3 bg-surface-container-lowest rounded-xl border border-outline-variant focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-outline">calendar_today</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md font-body-md outline-none text-on-surface" placeholder="Add dates" type="text">
+</div>
+<div class="flex-1 flex items-center gap-3 px-4 py-3 bg-surface-container-lowest rounded-xl border border-outline-variant focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-outline">group</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-body-md font-body-md outline-none text-on-surface" placeholder="Travelers" type="text">
+</div>
+<button onclick="window.location.href='explore.html'" class="bg-primary text-on-primary px-10 py-4 rounded-xl font-headline-md text-[18px] hover:brightness-110 active:scale-95 transition-all shadow-lg">
+                        Search
+                    </button>
+</div>
+</div>
+</section>
+<!-- Location Bar -->
+<div class="w-full bg-surface-container-low border-b border-outline-variant/30">
+<div class="max-w-[1280px] mx-auto px-gutter py-4 flex items-center justify-center md:justify-start gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">push_pin</span>
+<span class="font-body-md text-on-surface-variant">Showing recommendations near <span class="font-semibold text-on-surface">Panipat</span></span>
+</div>
+</div>
+<!-- Recommended For You (Carousel) -->
+<section class="max-w-[1280px] mx-auto px-gutter py-stack-lg">
+<div class="flex items-center justify-between mb-stack-lg">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Recommended for you</h2>
+<p class="font-body-md text-on-surface-variant">Based on your interests in nature and serenity</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-6 overflow-x-auto hide-scrollbar pb-8">
+<!-- Hill Station Card -->
+<div onclick="window.location.href='explore.html'" class="min-w-[320px] md:min-w-[400px] group cursor-pointer">
+<div class="relative h-64 w-full rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-all">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0o2Ci5Q60SAJvSy6yN6voSHOssOlRdjw3fyT8uRXQtcSKPGriH6XMTPaLyIs7VGyZwwKAp0_X1UPo9gpSAbPcoQPZvGzHYcalQmFzY-CMotrL7vdM2jgleJw_Bc0aL8iWd1bRaTkQmyh8dX7Ugc9OBXOdogIqDO2T2B-XGqwAGYLfhvK9-03SfOJqFLBZ9z3XZeq3vAcPr8nJnEJEDzDFCLnQt1T1sPwTl_Ld039Op4fKeYDsi3wK')"></div>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-primary-container/90 text-on-primary-container text-label-sm font-label-sm rounded-full backdrop-blur-md">Hill Station</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">Munnar, Kerala</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="">4.8 (2.4k reviews)</span>
+<span class="mx-2">•</span>
+<span class="">Starting at ₹12,500</span>
+</div>
+</div>
+<!-- Beach Card -->
+<div onclick="window.location.href='explore.html'" class="min-w-[320px] md:min-w-[400px] group cursor-pointer">
+<div class="relative h-64 w-full rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-all">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7zygCBPbWfYqbgPUDOGqWkaYiRK4Y1je6EhW1KmYnpBeD88bQG8imupQrNi6GqPKmsdpfsNih5xlpl1yMiXYtz1F5V8q_ChpuVrkH8XVQZHAfR0l6QeVHMY52z4eAYO2gtyofXJeSDGKBPlZ2zUkr7KuKSUYyhsVBLz7DITx7MZGqKukAofRL2eaEFtLHfX_QfjrKssnK0bZRYxZhu3fAQdGnV4Pvc_kaBK83Tc53ShraxwJ5lK2O')"></div>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-tertiary-container/90 text-on-tertiary-container text-label-sm font-label-sm rounded-full backdrop-blur-md">Beach Getaway</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">Havelock Island, Andaman</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="">4.9 (1.1k reviews)</span>
+<span class="mx-2">•</span>
+<span class="">Starting at ₹25,000</span>
+</div>
+</div>
+<!-- Adventure Card -->
+<div onclick="window.location.href='explore.html'" class="min-w-[320px] md:min-w-[400px] group cursor-pointer">
+<div class="relative h-64 w-full rounded-xl overflow-hidden mb-4 shadow-sm group-hover:shadow-xl transition-all">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDfZ7z_v0ZlTi6Hd05o1G4yGnHg-pNsJBDP432qDF-CowtNaOxH0-pz-mOeEqYOUI7L1CvZtSzCfaZOQA6E2o6P3AYEwJHPeewpf76E_a8byZHUDxRg4z0UGOS1F9Z6kb_hLW_2sD0bgE0FdYvIG6-nPBpuxUasnQJKH7ec5pabniUeuSsxyLNIpsxy2Gep-Io5nW-u7VdXhT51ohrUCITSR0r5NkfGaPK-ZY3lwyLdCxZ-Dpn3LVjs')"></div>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary-container/90 text-on-secondary-container text-label-sm font-label-sm rounded-full backdrop-blur-md">Adventure</span>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md group-hover:text-primary transition-colors">Leh, Ladakh</h3>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-md">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="">4.7 (3.8k reviews)</span>
+<span class="mx-2">•</span>
+<span class="">Starting at ₹18,900</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending This Month -->
+<section class="bg-surface-container-low py-stack-lg">
+<div class="max-w-[1280px] mx-auto px-gutter">
+<div class="mb-stack-lg text-center">
+<h2 class="font-headline-md text-headline-md text-on-surface">Trending this month</h2>
+<p class="font-body-md text-on-surface-variant">The destinations everyone is talking about right now</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<!-- Featured Bento Item -->
+<div onclick="window.location.href='explore.html'" class="md:col-span-8 relative group cursor-pointer overflow-hidden rounded-2xl">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA--W_SFliCsATKFWdsQSSG4GXCGc7PfFZcEc2je2tjpCwGz_XstznqjV9Xdd1GS7HPRSpYTIy_uSue_CYuEkPrh-iGsZB3nUZ2SXUvWitfTWE25fnweLzTsU2pONnKPxddN7QSsAXSq52I-t2zZc8wcyg88gUkf0yNtofcdLLTHWmVV0garKUr1KEyOtsCUQ66oZid7wt1YIHkBTsVkR__PqoKCg5F5E0QAAD4z1yXMlN4O97dkGP3')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 text-white">
+<span class="inline-block px-3 py-1 bg-primary mb-3 rounded-full text-label-sm font-label-sm">#1 Trending</span>
+<h3 class="text-4xl font-bold font-headline-md mb-2">Kyoto, Japan</h3>
+<p class="text-white/80 font-body-md max-w-md">Experience the perfect blend of ancient tradition and futuristic neon nights this season.</p>
+</div>
+</div>
+<!-- Side Bento Item 1 -->
+<div onclick="window.location.href='explore.html'" class="md:col-span-4 relative group cursor-pointer overflow-hidden rounded-2xl h-[300px] md:h-auto">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAgOFH_9_hqkcMutmppcteTgITzHQDHHPk5lLVQRenzjKpNjR3v3wLHc4XhVIZ_0gUizeFZp6zlHmCVQDHHv1dBxWyXv403BdsFLS_MFNSONksInOE7FVxXG9pDHnpKgos3ofre5J3vBr4ThdAl_uc089_u_CuQzJWp0H3rhm6l9Qs2nZGZevOkU456_IlAal1rbUg8yNTslqsvq6HuLNakK_DCgxfUm06Wsw1bubU-F2pGT2B3Jl9z')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-xl font-bold font-headline-md">Santorini, Greece</h3>
+<p class="text-white/80 text-sm font-body-md">Iconic sunsets &amp; white villas</p>
+</div>
+</div>
+<!-- Side Bento Item 2 -->
+<div onclick="window.location.href='explore.html'" class="md:col-span-4 md:col-start-9 relative group cursor-pointer overflow-hidden rounded-2xl h-[300px] md:h-auto">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCG6e2mTqw_htJtsUop2AqrgsorpxxJCVfYiQswoiM26RIsT3xmLlTmuRx2_fpWUo4QkQnRz1KzG3NWaI5sc_BTTYTsyXaysnM3-NqASaYk0zhBsxZ4K71V1uZnGiDGDxySJ4iZxm9MdNTJWfOs_k67jJ3_yhfMaZWI1ohAfcBf0FkxVxv5sS68GLdnJS6KgJHvgKsPsycTsInTcANQN6WJmF-6yZLPj2cj2zpgGZQ9UvBDrPrY7ojZ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<h3 class="text-xl font-bold font-headline-md">Tromsø, Norway</h3>
+<p class="text-white/80 text-sm font-body-md">Winter Aurora magic</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Personalization Section -->
+<section class="max-w-[1280px] mx-auto px-gutter py-stack-lg">
+<div class="bg-surface-container-highest rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="flex-1 z-10 text-center md:text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-white/50 border border-outline-variant rounded-full text-label-sm font-label-sm text-primary mb-6">
+<span class="material-symbols-outlined text-[18px]">history</span>
+<span class="">Welcome back, Traveller</span>
+</div>
+<h2 class="font-display-lg text-[32px] md:text-[40px] text-on-surface mb-stack-md">Based on your past trips to <span class="text-primary italic">Udaipur</span>...</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg">We think you'll love these luxury heritage stays in Jodhpur. Get exclusive 15% member pricing for your next getaway.</p>
+<div class="flex flex-wrap gap-4 justify-center md:justify-start">
+<button onclick="window.location.href='explore.html'" class="px-8 py-4 bg-primary text-on-primary rounded-xl font-headline-md hover:shadow-lg transition-all active:scale-95">Explore Heritage Stays</button>
+<button onclick="window.location.href='planning.html'" class="px-8 py-4 border border-outline text-on-surface rounded-xl font-headline-md hover:bg-surface-container transition-all active:scale-95">View Trip History</button>
+</div>
+</div>
+<div class="flex-1 relative w-full md:w-auto">
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-4 pt-8">
+<div class="rounded-2xl overflow-hidden h-48 shadow-lg">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpj-LjFc4ZD13d5lrneypdNu9WeUPu0HE3VQS9HL5yqrblmcBZEB2ax-zHVwe-Sv9baDelG08EGylY5sLB8DrJbVW5uxQ4nUde9DAFhGgTLcS--QZ8p4fN0huu3W90yWGDTe8b9fXNKCnJP5KeKEB7rOodtuVMk47_IwyqT1BMARN3i10r0dka_Vxw7Ylx2X3ju8jB0h39y3byB8eUoJ45TClxZHn5Xv94_K8j7qHHKVvUvkN49bux">
+</div>
+<div class="rounded-2xl overflow-hidden h-64 shadow-lg">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqFrS0aJflHlpUhRKL7L5IcrKvDovuZ_Nil1UFP-G64J2s0Ny0teGm1hMAVpPSHLZKY0f40qf-0jC6VKFN7blzf7h2yFDy3jtRGAiUCwkQbpna8Aah5zRCXP77oE-L-u36gadkS61BoT07Q7P4cYo-Raz2niexpDJsCG9E4S9lUyjtQmtFyEeSk68PkeeapPMBc0nmV-wLugWgo3KsJNutDIjeqr7hFDn_0TaI-bYMw2EhIRcbTUg3">
+</div>
+</div>
+<div class="space-y-4">
+<div class="rounded-2xl overflow-hidden h-64 shadow-lg">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1_PfURSSk9xySrcdbvmyAYwL4azqJMmqTMcgxJ_XN5fH5QcSHgkU84UhFowwDVr52GP62wgUw2EIDnravUtO0skfK4uEL8xB1pyv78FYNoQ6zqA0527AdqKT1LdfddPHjPJwRiW9ZOR1eiHRgR8dIuLgVvhNPzKx7oyNNHyJFKWyW-E5SBwiFzkNXgNBlKJmrLHScgVYLb_jwCgUbPG9PkWjWxxHNg2RLD-GIIeL8Tt8hqUvCyn2g">
+</div>
+<div class="rounded-2xl overflow-hidden h-48 shadow-lg">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHljlb9SJqOEOAfGT9uYIpp5YBoT-KDOvSWnmKA8Qts3fDgXedXgajeLF6MQ8jquyifjfvIdl0RSJ8KQqSHuz-ET_aCQ9JwYQ1DfFJZJzhI21BrzBX_b2PKAkjWboTaILBDDlqMjqKo_HJUSmajOye4M5IQAkWgjevlom-gvJw78zhoMJcC8icj2irNbrDPhxPPKCbFPAXWb-bxnMBeiU_nTEV50pmWdRmyin2k9Vbbjw7kQeCKDv5">
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container dark:bg-surface-container-high border-t border-outline-variant dark:border-outline">
+<div class="max-w-[1280px] mx-auto px-gutter py-stack-lg flex flex-col md:flex-row justify-between gap-8 md:gap-0">
+<div class="space-y-4 max-w-sm">
+<span class="font-display-lg text-display-lg font-bold text-primary">TRIPPL</span>
+<p class="font-body-md text-on-surface-variant">Your intelligent companion for crafting seamless travel experiences across the globe. From hidden gems to iconic landmarks, we plan, you explore.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-8 md:gap-16">
+<div class="flex flex-col gap-3">
+<h4 class="font-headline-md text-[16px] text-on-surface">Company</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">About Us</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Privacy Policy</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="font-headline-md text-[16px] text-on-surface">Support</h4>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Contact Support</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">Help Center</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-body-md" href="#">FAQs</a>
+</div>
+</div>
+</div>
+<div class="max-w-[1280px] mx-auto px-gutter py-6 border-t border-outline-variant/30 text-center md:text-left">
+<p class="font-body-md text-on-surface-variant text-sm">© 2024 TRIPPL Planning. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        const carousels = document.querySelectorAll('.hide-scrollbar');
+        carousels.forEach(carousel => {
+            let isDown = false;
+            let startX, scrollLeft;
+            carousel.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+            });
+            carousel.addEventListener('mouseleave', () => isDown = false);
+            carousel.addEventListener('mouseup', () => isDown = false);
+            carousel.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2;
+                carousel.scrollLeft = scrollLeft - walk;
+            });
+        });
+</script>
+</body></html>

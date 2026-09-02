@@ -1,0 +1,116 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Profile - TRIPPL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&amp;family=Work+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#5f5e5e",
+                    "secondary-fixed": "#e4e2e1",
+                    "on-primary": "#ffffff",
+                    "surface": "#f6faf9",
+                    "secondary-container": "#e4e2e1",
+                    "outline": "#6e7979",
+                    "surface-container-highest": "#dfe3e2",
+                    "surface-container": "#ebefee",
+                    "background": "#f6faf9",
+                    "on-surface": "#181c1c",
+                    "primary": "#006565",
+                    "primary-container": "#008080",
+                    "surface-container-low": "#f0f4f3",
+                    "on-surface-variant": "#3e4949"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "stack-sm": "8px",
+                    "container-max": "1280px",
+                    "stack-md": "16px",
+                    "stack-lg": "32px"
+            },
+            "fontFamily": {
+                    "body-md": ["Work Sans"],
+                    "headline-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col min-h-screen">
+<!-- TopNavBar -->
+<header class="w-full top-0 sticky bg-surface shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+<div class="max-w-[1280px] mx-auto px-gutter h-20 flex items-center justify-between">
+<a href="index.html" class="font-display-lg text-display-lg font-bold text-primary hover:opacity-90 transition-opacity">TRIPPL</a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="index.html">Home</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="explore.html">Explore</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="booking.html">Bookings</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="planning.html">My Trips</a>
+<a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-150 font-body-md text-body-md" href="expenses.html">Expenses</a>
+</nav>
+<div class="flex items-center gap-4">
+<a href="explore.html" class="hidden md:block px-6 py-2 bg-primary text-on-primary rounded-full font-label-sm text-label-sm hover:bg-on-primary-fixed-variant transition-colors active:scale-95 duration-150 text-center">Plan a Trip</a>
+<a href="profile.html" class="w-10 h-10 rounded-full bg-surface-container overflow-hidden flex items-center justify-center border-2 border-primary active:scale-95 duration-150 transition-transform"><span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">person</span></a>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-[1280px] mx-auto w-full px-gutter py-stack-lg">
+<div class="bg-surface-container-lowest p-8 rounded-3xl border border-outline-variant shadow-sm max-w-2xl mx-auto">
+<div class="flex items-center gap-6 mb-8">
+<div class="w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center text-3xl font-bold">
+            JD
+          </div>
+<div>
+<h2 class="text-2xl font-bold">John Doe</h2>
+<p class="text-on-surface-variant">john.doe@example.com</p>
+<span class="px-3 py-1 bg-primary-container/20 text-primary text-xs font-bold rounded-full mt-2 inline-block">TRIPPL Premium Member</span>
+</div>
+</div>
+<div class="space-y-6">
+<div>
+<h3 class="font-bold text-lg mb-4">Account Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 bg-surface rounded-xl">
+<span class="text-xs text-on-surface-variant block">Phone</span>
+<span class="font-medium">+1 (555) 000-0000</span>
+</div>
+<div class="p-4 bg-surface rounded-xl">
+<span class="text-xs text-on-surface-variant block">Country</span>
+<span class="font-medium">United States</span>
+</div>
+</div>
+</div>
+<div>
+<h3 class="font-bold text-lg mb-4">Preferences</h3>
+<div class="p-4 bg-surface rounded-xl flex justify-between items-center">
+<span>Email Notifications</span>
+<input checked type="checkbox" class="rounded text-primary focus:ring-primary h-5 w-5">
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full mt-auto bg-surface-container border-t border-outline-variant">
+<div class="max-w-[1280px] mx-auto px-gutter py-6 text-center">
+<p class="text-on-surface-variant font-body-md">© 2024 TRIPPL Planning. All rights reserved.</p>
+</div>
+</footer>
+</body></html>
