@@ -113,4 +113,41 @@
 <p class="text-on-surface-variant font-body-md">© 2024 TRIPPL Planning. All rights reserved.</p>
 </div>
 </footer>
+<script src="js/auth.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const user = getAuthUser();
+        if (user) {
+            const initials = user.full_name
+                ? user.full_name.split(" ").map(n => n[0]).join("").toUpperCase().substring(0, 2)
+                : "U";
+
+            const avatarContainer = document.querySelector(".w-20.h-20");
+            if (avatarContainer) {
+                if (user.profile_image) {
+                    avatarContainer.innerHTML = `<img src="${user.profile_image}" alt="${user.full_name}" class="w-full h-full object-cover rounded-full">`;
+                } else {
+                    avatarContainer.textContent = initials;
+                }
+            }
+
+            const nameEl = document.querySelector("h2.text-2xl");
+            if (nameEl && user.full_name) nameEl.textContent = user.full_name;
+
+            const emailEl = document.querySelector("p.text-on-surface-variant");
+            if (emailEl && user.email) emailEl.textContent = user.email;
+
+            // Phone & Country fields
+            const infoCards = document.querySelectorAll(".p-4.bg-surface");
+            if (infoCards[0]) {
+                const phoneVal = infoCards[0].querySelector(".font-medium");
+                if (phoneVal) phoneVal.textContent = user.phone || "+1 (555) 234-5678";
+            }
+            if (infoCards[1]) {
+                const countryVal = infoCards[1].querySelector(".font-medium");
+                if (countryVal) countryVal.textContent = user.country || "United States";
+            }
+        }
+    });
+</script>
 </body></html>

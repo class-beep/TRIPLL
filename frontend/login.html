@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Log In & Sign Up | TRIPPL Travel Planner</title>
+    <meta name="description" content="Sign in or register for TRIPPL Smart Travel Planner to create personalized itineraries, discover destinations, manage bookings, and track travel expenses.">
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+              "primary": "#006565",
+              "primary-container": "#008080",
+              "on-primary": "#ffffff",
+              "on-primary-container": "#e3fffe",
+              "surface": "#f6faf9",
+              "surface-container": "#ebefee",
+              "surface-container-low": "#f0f4f3",
+              "surface-container-lowest": "#ffffff",
+              "on-surface": "#181c1c",
+              "on-surface-variant": "#3e4949",
+              "outline": "#6e7979",
+              "outline-variant": "#bdc9c8",
+              "error": "#ba1a1a",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a"
+            },
+            "fontFamily": {
+              "body": ["Work Sans", "sans-serif"],
+              "display": ["Plus Jakarta Sans", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+    
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .glass-pill {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.03); }
+        }
+        .animate-glow {
+            animation: pulseGlow 4s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface flex flex-col min-h-screen selection:bg-primary/20 selection:text-primary">
+
+    <!-- Top Navigation Header -->
+    <header class="w-full top-0 sticky bg-surface/90 backdrop-blur-md shadow-sm z-50 shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+        <div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-display text-3xl font-extrabold text-primary hover:opacity-90 transition-opacity flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl text-primary">explore</span>
+                <span>TRIPPL</span>
+            </a>
+            <nav class="hidden md:flex gap-8 items-center h-full">
+                <a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors font-medium text-base" href="index.html">Home</a>
+                <a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors font-medium text-base" href="explore.html">Explore</a>
+                <a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors font-medium text-base" href="booking.html">Bookings</a>
+                <a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors font-medium text-base" href="planning.html">My Trips</a>
+                <a class="h-full flex items-center text-on-surface-variant hover:text-primary transition-colors font-medium text-base" href="expenses.html">Expenses</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="explore.html" class="hidden md:block px-6 py-2 bg-primary/10 text-primary rounded-full font-medium text-sm hover:bg-primary/20 transition-all text-center">
+                    Plan a Trip
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Auth Section -->
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-10 relative overflow-hidden">
+        <!-- Background Ambient Accents -->
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none animate-glow"></div>
+        <div class="absolute -bottom-32 -right-32 w-96 h-96 bg-primary-container/15 rounded-full blur-3xl pointer-events-none animate-glow" style="animation-delay: 2s;"></div>
+
+        <div class="w-full max-w-5xl bg-surface-container-lowest rounded-3xl border border-outline-variant shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 min-h-[640px]">
+            
+            <!-- Left Hero Feature Panel (Visible on lg screens) -->
+            <div class="lg:col-span-5 relative hidden lg:flex flex-col justify-between p-10 overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-emerald-950 text-white">
+                <!-- Background Image Overlay -->
+                <div class="absolute inset-0 z-0 opacity-40 mix-blend-overlay bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop');"></div>
+                
+                <!-- Floating Decorative Circles -->
+                <div class="absolute -right-20 -top-20 w-64 h-64 border border-white/20 rounded-full pointer-events-none"></div>
+                <div class="absolute -right-10 -top-10 w-44 h-44 border border-white/10 rounded-full pointer-events-none"></div>
+                
+                <!-- Top Brand Tag -->
+                <div class="relative z-10">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass-pill text-xs font-semibold uppercase tracking-wider text-emerald-100">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        Smart Travel Ecosystem
+                    </div>
+                </div>
+
+                <!-- Center Content Callout -->
+                <div class="relative z-10 my-auto py-6">
+                    <h2 class="font-display text-3xl font-extrabold leading-tight mb-4 text-white">
+                        Unlock Your Next Extraordinary Adventure
+                    </h2>
+                    <p class="text-white/80 text-sm leading-relaxed mb-8">
+                        Join over 25,000+ travelers planning custom itineraries, tracking shared expenses, and booking unique stays effortlessly.
+                    </p>
+
+                    <!-- Feature Badges -->
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3 glass-pill p-3 rounded-2xl text-sm font-medium">
+                            <div class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-white text-lg">route</span>
+                            </div>
+                            <span>AI-Powered Itinerary Generator</span>
+                        </div>
+                        <div class="flex items-center gap-3 glass-pill p-3 rounded-2xl text-sm font-medium">
+                            <div class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-white text-lg">account_balance_wallet</span>
+                            </div>
+                            <span>Real-Time Group Expense Tracking</span>
+                        </div>
+                        <div class="flex items-center gap-3 glass-pill p-3 rounded-2xl text-sm font-medium">
+                            <div class="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                                <span class="material-symbols-outlined text-white text-lg">verified_user</span>
+                            </div>
+                            <span>Guaranteed Best Hotel & Flight Rates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer User Avatars Testimonial -->
+                <div class="relative z-10 pt-4 border-t border-white/15 flex items-center justify-between text-xs text-white/80">
+                    <div class="flex -space-x-2">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white/60 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop" alt="User avatar">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white/60 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop" alt="User avatar">
+                        <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white/60 object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop" alt="User avatar">
+                        <div class="flex h-8 w-8 items-center justify-center rounded-full ring-2 ring-white/60 bg-white/20 text-white font-bold text-[10px]">
+                            +4k
+                        </div>
+                    </div>
+                    <span class="font-medium text-emerald-100">Rated 4.9/5 by global travelers</span>
+                </div>
+            </div>
+
+            <!-- Right Form Card Container -->
+            <div class="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-center bg-surface-container-lowest">
+                
+                <!-- Tab Switcher Segmented Control -->
+                <div class="mb-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <h1 id="auth-heading" class="font-display text-2xl sm:text-3xl font-bold text-on-surface">Welcome Back</h1>
+                            <p id="auth-subheading" class="text-on-surface-variant text-sm mt-1">Please enter your details to access your account</p>
+                        </div>
+                    </div>
+
+                    <!-- Toggle Tabs Buttons -->
+                    <div class="p-1 bg-surface-container rounded-2xl flex items-center gap-1 border border-outline-variant/50">
+                        <button id="tab-login" onclick="switchTab('login')" class="flex-1 py-3 px-4 rounded-xl font-display font-semibold text-sm transition-all duration-200 shadow-sm bg-white text-primary flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-lg">login</span>
+                            Sign In
+                        </button>
+                        <button id="tab-register" onclick="switchTab('register')" class="flex-1 py-3 px-4 rounded-xl font-display font-semibold text-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-lg">person_add</span>
+                            Create Account
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Alert Message Banner -->
+                <div id="alert-banner" class="hidden mb-6 p-4 rounded-2xl text-sm flex items-start gap-3 transition-all">
+                    <span id="alert-icon" class="material-symbols-outlined text-xl shrink-0 mt-0.5">info</span>
+                    <div class="flex-grow">
+                        <p id="alert-text" class="font-medium"></p>
+                    </div>
+                    <button onclick="hideAlert()" class="text-current opacity-70 hover:opacity-100">
+                        <span class="material-symbols-outlined text-lg">close</span>
+                    </button>
+                </div>
+
+                <!-- LOGIN FORM -->
+                <form id="form-login" onsubmit="handleLoginSubmit(event)" class="space-y-5">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-2" for="login-email">
+                            Email Address
+                        </label>
+                        <div class="relative flex items-center">
+                            <span class="material-symbols-outlined absolute left-4 text-outline text-xl pointer-events-none">mail</span>
+                            <input id="login-email" type="email" required placeholder="name@example.com"
+                                class="w-full pl-11 pr-4 py-3.5 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all">
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant" for="login-password">
+                                Password
+                            </label>
+                            <button type="button" onclick="openForgotPasswordModal()" class="text-xs font-semibold text-primary hover:underline focus:outline-none">
+                                Forgot Password?
+                            </button>
+                        </div>
+                        <div class="relative flex items-center">
+                            <span class="material-symbols-outlined absolute left-4 text-outline text-xl pointer-events-none">lock</span>
+                            <input id="login-password" type="password" required placeholder="••••••••"
+                                class="w-full pl-11 pr-12 py-3.5 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all">
+                            <button type="button" onclick="togglePasswordVisibility('login-password', this)" class="absolute right-4 text-outline hover:text-on-surface focus:outline-none">
+                                <span class="material-symbols-outlined text-xl">visibility</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <label class="flex items-center gap-2 cursor-pointer select-none">
+                            <input id="login-remember" type="checkbox" checked class="w-4 h-4 rounded text-primary focus:ring-primary border-outline-variant">
+                            <span class="text-xs text-on-surface-variant font-medium">Keep me signed in</span>
+                        </label>
+                    </div>
+
+                    <button id="btn-login-submit" type="submit" class="w-full py-4 bg-primary text-on-primary font-display font-bold text-base rounded-xl hover:bg-primary-container transition-all active:scale-[0.99] shadow-lg shadow-primary/25 flex items-center justify-center gap-2">
+                        <span id="login-spinner" class="hidden animate-spin material-symbols-outlined text-lg">progress_activity</span>
+                        <span id="login-btn-text">Sign In</span>
+                    </button>
+                </form>
+
+                <!-- REGISTER FORM (Hidden by default) -->
+                <form id="form-register" onsubmit="handleRegisterSubmit(event)" class="hidden space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1.5" for="reg-name">
+                            Full Name
+                        </label>
+                        <div class="relative flex items-center">
+                            <span class="material-symbols-outlined absolute left-4 text-outline text-xl pointer-events-none">person</span>
+                            <input id="reg-name" type="text" required placeholder="e.g. Alex Morgan"
+                                class="w-full pl-11 pr-4 py-3 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1.5" for="reg-email">
+                            Email Address
+                        </label>
+                        <div class="relative flex items-center">
+                            <span class="material-symbols-outlined absolute left-4 text-outline text-xl pointer-events-none">mail</span>
+                            <input id="reg-email" type="email" required placeholder="alex@example.com"
+                                class="w-full pl-11 pr-4 py-3 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1.5" for="reg-phone">
+                                Phone Number
+                            </label>
+                            <div class="relative flex items-center">
+                                <span class="material-symbols-outlined absolute left-3.5 text-outline text-lg pointer-events-none">call</span>
+                                <input id="reg-phone" type="tel" placeholder="+1 (555) 000-0000"
+                                    class="w-full pl-10 pr-3 py-3 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1.5" for="reg-country">
+                                Country
+                            </label>
+                            <div class="relative flex items-center">
+                                <span class="material-symbols-outlined absolute left-3.5 text-outline text-lg pointer-events-none">public</span>
+                                <select id="reg-country"
+                                    class="w-full pl-10 pr-8 py-3 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all appearance-none cursor-pointer">
+                                    <option value="United States">United States</option>
+                                    <option value="India" selected>India</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="France">France</option>
+                                    <option value="Japan">Japan</option>
+                                    <option value="Singapore">Singapore</option>
+                                    <option value="Other">Other Country</option>
+                                </select>
+                                <span class="material-symbols-outlined absolute right-3 text-outline text-lg pointer-events-none">expand_more</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1.5" for="reg-password">
+                            Password
+                        </label>
+                        <div class="relative flex items-center">
+                            <span class="material-symbols-outlined absolute left-4 text-outline text-xl pointer-events-none">lock</span>
+                            <input id="reg-password" type="password" required placeholder="Min. 8 characters" oninput="checkPasswordStrength(this.value)"
+                                class="w-full pl-11 pr-12 py-3 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all">
+                            <button type="button" onclick="togglePasswordVisibility('reg-password', this)" class="absolute right-4 text-outline hover:text-on-surface focus:outline-none">
+                                <span class="material-symbols-outlined text-xl">visibility</span>
+                            </button>
+                        </div>
+                        
+                        <!-- Password Strength Indicator -->
+                        <div class="mt-2 space-y-1">
+                            <div class="flex h-1.5 w-full bg-surface-container rounded-full overflow-hidden gap-1">
+                                <div id="strength-bar-1" class="h-full w-1/3 bg-outline-variant transition-all duration-300"></div>
+                                <div id="strength-bar-2" class="h-full w-1/3 bg-outline-variant transition-all duration-300"></div>
+                                <div id="strength-bar-3" class="h-full w-1/3 bg-outline-variant transition-all duration-300"></div>
+                            </div>
+                            <p id="strength-label" class="text-[11px] text-on-surface-variant font-medium text-right">Password strength: Empty</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1.5" for="reg-confirm-password">
+                            Confirm Password
+                        </label>
+                        <div class="relative flex items-center">
+                            <span class="material-symbols-outlined absolute left-4 text-outline text-xl pointer-events-none">lock_reset</span>
+                            <input id="reg-confirm-password" type="password" required placeholder="Re-enter password" oninput="checkPasswordMatch()"
+                                class="w-full pl-11 pr-12 py-3 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium transition-all">
+                        </div>
+                        <p id="confirm-match-label" class="text-[11px] text-error font-medium mt-1 hidden">Passwords do not match</p>
+                    </div>
+
+                    <div class="pt-1">
+                        <label class="flex items-start gap-2.5 cursor-pointer select-none">
+                            <input id="reg-terms" type="checkbox" required class="w-4 h-4 mt-0.5 rounded text-primary focus:ring-primary border-outline-variant">
+                            <span class="text-xs text-on-surface-variant leading-tight">
+                                I agree to the <a href="#" class="text-primary underline font-semibold">Terms of Service</a> and <a href="#" class="text-primary underline font-semibold">Privacy Policy</a>.
+                            </span>
+                        </label>
+                    </div>
+
+                    <button id="btn-register-submit" type="submit" class="w-full py-3.5 bg-primary text-on-primary font-display font-bold text-base rounded-xl hover:bg-primary-container transition-all active:scale-[0.99] shadow-lg shadow-primary/25 flex items-center justify-center gap-2">
+                        <span id="register-spinner" class="hidden animate-spin material-symbols-outlined text-lg">progress_activity</span>
+                        <span id="register-btn-text">Create Account</span>
+                    </button>
+                </form>
+
+                <!-- Divider & Social Logins -->
+                <div class="mt-6 pt-6 border-t border-outline-variant/60">
+                    <div class="relative flex py-2 items-center justify-center mb-4">
+                        <div class="flex-grow border-t border-outline-variant/40"></div>
+                        <span class="flex-shrink mx-4 text-xs uppercase font-bold text-outline tracking-wider">or quick access</span>
+                        <div class="flex-grow border-t border-outline-variant/40"></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 mb-4">
+                        <button type="button" onclick="handleSocialAuth('Google')" class="py-2.5 px-4 bg-surface rounded-xl border border-outline-variant text-on-surface hover:bg-surface-container text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+                            </svg>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" onclick="handleSocialAuth('Apple')" class="py-2.5 px-4 bg-surface rounded-xl border border-outline-variant text-on-surface hover:bg-surface-container text-xs font-semibold flex items-center justify-center gap-2 transition-all">
+                            <svg class="w-4 h-4 shrink-0 fill-current" viewBox="0 0 24 24">
+                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.13-1.97.99-3.12-1.02.04-2.28.69-3 1.53-.63.74-1.18 1.91-1.03 3.04 1.14.09 2.33-.6 3.04-1.45z"/>
+                            </svg>
+                            <span>Apple</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Forgot Password Modal -->
+    <div id="modal-forgot-password" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-surface-container-lowest w-full max-w-md p-6 sm:p-8 rounded-3xl shadow-2xl border border-outline-variant relative animate-fadeIn">
+            <button onclick="closeForgotPasswordModal()" class="absolute top-4 right-4 text-outline hover:text-on-surface">
+                <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+            <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-4">
+                <span class="material-symbols-outlined text-2xl">lock_reset</span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-on-surface mb-1">Reset Password</h3>
+            <p class="text-xs text-on-surface-variant mb-6">Enter your registered email address and we'll send you instructions to reset your password.</p>
+            
+            <form onsubmit="handleForgotPasswordSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-1.5" for="reset-email">
+                        Registered Email
+                    </label>
+                    <input id="reset-email" type="email" required placeholder="name@example.com"
+                        class="w-full px-4 py-3 bg-surface-container-low rounded-xl border border-outline-variant text-on-surface placeholder:text-outline focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 text-sm font-medium">
+                </div>
+                <button type="submit" class="w-full py-3.5 bg-primary text-on-primary font-display font-bold text-sm rounded-xl hover:bg-primary-container transition-all">
+                    Send Reset Link
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full mt-auto bg-surface-container border-t border-outline-variant">
+        <div class="max-w-[1280px] mx-auto px-6 py-6 text-center text-xs text-on-surface-variant">
+            <p>© 2024 TRIPPL Smart Travel Planner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Auth Script Integration -->
+    <script src="js/auth.js"></script>
+    <script>
+        let currentTab = "login";
+
+        // Read URL query parameters on load
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const mode = params.get("mode");
+            if (mode === "register") {
+                switchTab("register");
+            } else {
+                switchTab("login");
+            }
+
+            if (params.get("logged_out")) {
+                showAlert("info", "You have been logged out successfully.");
+            } else if (params.get("session_expired")) {
+                showAlert("error", "Your session has expired. Please sign in again.");
+            }
+
+            // Redirect if already logged in
+            if (isLoggedIn()) {
+                const user = getAuthUser();
+                showAlert("success", `Already logged in as ${user.full_name || user.email}. Redirecting...`);
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1500);
+            }
+        });
+
+        // Tab Switcher Handler
+        function switchTab(tab) {
+            currentTab = tab;
+            const loginBtn = document.getElementById("tab-login");
+            const registerBtn = document.getElementById("tab-register");
+            const loginForm = document.getElementById("form-login");
+            const registerForm = document.getElementById("form-register");
+            const heading = document.getElementById("auth-heading");
+            const subheading = document.getElementById("auth-subheading");
+
+            hideAlert();
+
+            if (tab === "login") {
+                loginBtn.className = "flex-1 py-3 px-4 rounded-xl font-display font-semibold text-sm transition-all duration-200 shadow-sm bg-white text-primary flex items-center justify-center gap-2";
+                registerBtn.className = "flex-1 py-3 px-4 rounded-xl font-display font-semibold text-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-2";
+                loginForm.classList.remove("hidden");
+                registerForm.classList.add("hidden");
+                heading.textContent = "Welcome Back";
+                subheading.textContent = "Please enter your details to access your account";
+            } else {
+                registerBtn.className = "flex-1 py-3 px-4 rounded-xl font-display font-semibold text-sm transition-all duration-200 shadow-sm bg-white text-primary flex items-center justify-center gap-2";
+                loginBtn.className = "flex-1 py-3 px-4 rounded-xl font-display font-semibold text-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface flex items-center justify-center gap-2";
+                registerForm.classList.remove("hidden");
+                loginForm.classList.add("hidden");
+                heading.textContent = "Create an Account";
+                subheading.textContent = "Start planning your next trip in minutes";
+            }
+        }
+
+        // Toggle Password Visibility
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector("span");
+            if (input.type === "password") {
+                input.type = "text";
+                icon.textContent = "visibility_off";
+            } else {
+                input.type = "password";
+                icon.textContent = "visibility";
+            }
+        }
+
+        // Password Strength Indicator
+        function checkPasswordStrength(val) {
+            const bar1 = document.getElementById("strength-bar-1");
+            const bar2 = document.getElementById("strength-bar-2");
+            const bar3 = document.getElementById("strength-bar-3");
+            const label = document.getElementById("strength-label");
+
+            if (!val) {
+                bar1.className = "h-full w-1/3 bg-outline-variant transition-all duration-300";
+                bar2.className = "h-full w-1/3 bg-outline-variant transition-all duration-300";
+                bar3.className = "h-full w-1/3 bg-outline-variant transition-all duration-300";
+                label.textContent = "Password strength: Empty";
+                label.className = "text-[11px] text-on-surface-variant font-medium text-right";
+                return;
+            }
+
+            let score = 0;
+            if (val.length >= 8) score++;
+            if (/[A-Z]/.test(val) && /[0-9]/.test(val)) score++;
+            if (/[^A-Za-z0-9]/.test(val) || val.length >= 12) score++;
+
+            if (score <= 1) {
+                bar1.className = "h-full w-1/3 bg-red-500 transition-all duration-300";
+                bar2.className = "h-full w-1/3 bg-outline-variant transition-all duration-300";
+                bar3.className = "h-full w-1/3 bg-outline-variant transition-all duration-300";
+                label.textContent = "Password strength: Weak";
+                label.className = "text-[11px] text-red-500 font-semibold text-right";
+            } else if (score === 2) {
+                bar1.className = "h-full w-1/3 bg-amber-500 transition-all duration-300";
+                bar2.className = "h-full w-1/3 bg-amber-500 transition-all duration-300";
+                bar3.className = "h-full w-1/3 bg-outline-variant transition-all duration-300";
+                label.textContent = "Password strength: Medium";
+                label.className = "text-[11px] text-amber-600 font-semibold text-right";
+            } else {
+                bar1.className = "h-full w-1/3 bg-emerald-500 transition-all duration-300";
+                bar2.className = "h-full w-1/3 bg-emerald-500 transition-all duration-300";
+                bar3.className = "h-full w-1/3 bg-emerald-500 transition-all duration-300";
+                label.textContent = "Password strength: Strong";
+                label.className = "text-[11px] text-emerald-600 font-semibold text-right";
+            }
+        }
+
+        // Confirm Password Match Check
+        function checkPasswordMatch() {
+            const pwd = document.getElementById("reg-password").value;
+            const confirmPwd = document.getElementById("reg-confirm-password").value;
+            const label = document.getElementById("confirm-match-label");
+
+            if (confirmPwd && pwd !== confirmPwd) {
+                label.classList.remove("hidden");
+            } else {
+                label.classList.add("hidden");
+            }
+        }
+
+        // Alert Banner Display
+        function showAlert(type, message) {
+            const banner = document.getElementById("alert-banner");
+            const icon = document.getElementById("alert-icon");
+            const text = document.getElementById("alert-text");
+
+            banner.classList.remove("hidden", "bg-error-container", "text-on-error-container", "bg-emerald-100", "text-emerald-900", "bg-sky-100", "text-sky-900");
+
+            if (type === "error") {
+                banner.classList.add("bg-error-container", "text-on-error-container");
+                icon.textContent = "warning";
+            } else if (type === "success") {
+                banner.classList.add("bg-emerald-100", "text-emerald-900");
+                icon.textContent = "check_circle";
+            } else {
+                banner.classList.add("bg-sky-100", "text-sky-900");
+                icon.textContent = "info";
+            }
+
+            text.textContent = message;
+        }
+
+        function hideAlert() {
+            document.getElementById("alert-banner").classList.add("hidden");
+        }
+
+        // Handle Login Submission
+        async function handleLoginSubmit(e) {
+            e.preventDefault();
+            hideAlert();
+
+            const email = document.getElementById("login-email").value.trim();
+            const password = document.getElementById("login-password").value;
+
+            const submitBtn = document.getElementById("btn-login-submit");
+            const spinner = document.getElementById("login-spinner");
+            const btnText = document.getElementById("login-btn-text");
+
+            submitBtn.disabled = true;
+            spinner.classList.remove("hidden");
+            btnText.textContent = "Authenticating...";
+
+            try {
+                const res = await loginUser(email, password);
+                if (res.success) {
+                    showAlert("success", "Welcome back! Login successful.");
+                    setTimeout(() => {
+                        const params = new URLSearchParams(window.location.search);
+                        const redirect = params.get("redirect") || "index.html";
+                        window.location.href = redirect;
+                    }, 1000);
+                }
+            } catch (err) {
+                showAlert("error", err.message || "Invalid email or password.");
+            } finally {
+                submitBtn.disabled = false;
+                spinner.classList.add("hidden");
+                btnText.textContent = "Sign In";
+            }
+        }
+
+        // Handle Register Submission
+        async function handleRegisterSubmit(e) {
+            e.preventDefault();
+            hideAlert();
+
+            const fullName = document.getElementById("reg-name").value.trim();
+            const email = document.getElementById("reg-email").value.trim();
+            const phone = document.getElementById("reg-phone").value.trim();
+            const country = document.getElementById("reg-country").value;
+            const password = document.getElementById("reg-password").value;
+            const confirmPassword = document.getElementById("reg-confirm-password").value;
+
+            if (password !== confirmPassword) {
+                showAlert("error", "Passwords do not match. Please re-enter.");
+                return;
+            }
+
+            const submitBtn = document.getElementById("btn-register-submit");
+            const spinner = document.getElementById("register-spinner");
+            const btnText = document.getElementById("register-btn-text");
+
+            submitBtn.disabled = true;
+            spinner.classList.remove("hidden");
+            btnText.textContent = "Creating Account...";
+
+            try {
+                const res = await registerUser({
+                    full_name: fullName,
+                    email: email,
+                    password: password,
+                    phone: phone,
+                    country: country
+                });
+
+                if (res.success) {
+                    showAlert("success", "Account created successfully! Redirecting...");
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 1200);
+                }
+            } catch (err) {
+                showAlert("error", err.message || "Registration failed. Email may already be in use.");
+            } finally {
+                submitBtn.disabled = false;
+                spinner.classList.add("hidden");
+                btnText.textContent = "Create Account";
+            }
+        }
+
+        // Social Auth Demo Handler
+        function handleSocialAuth(provider) {
+            showAlert("info", `${provider} single sign-on initialized. Logging in...`);
+            setTimeout(async () => {
+                const mockUser = {
+                    _id: provider.toLowerCase() + "_user_" + Date.now(),
+                    full_name: `${provider} Traveler`,
+                    email: `traveler@${provider.toLowerCase()}.com`,
+                    profile_image: `https://api.dicebear.com/7.x/avataaars/svg?seed=${provider}`,
+                    phone: "+1 (555) 888-9999",
+                    country: "United States"
+                };
+                setAuthSession("mock_social_token_" + Date.now(), mockUser);
+                showAlert("success", `Signed in with ${provider}! Redirecting...`);
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 1000);
+            }, 800);
+        }
+
+        // Forgot Password Modal Handlers
+        function openForgotPasswordModal() {
+            document.getElementById("modal-forgot-password").classList.remove("hidden");
+        }
+
+        function closeForgotPasswordModal() {
+            document.getElementById("modal-forgot-password").classList.add("hidden");
+        }
+
+        function handleForgotPasswordSubmit(e) {
+            e.preventDefault();
+            const resetEmail = document.getElementById("reset-email").value;
+            closeForgotPasswordModal();
+            showAlert("success", `Password reset instructions sent to ${resetEmail}. Check your inbox.`);
+        }
+    </script>
+</body>
+</html>
